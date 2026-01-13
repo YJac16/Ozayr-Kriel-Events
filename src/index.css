@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream-50 text-sage-900 font-sans;
+    margin: 0;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+  
+  /* Mobile-optimized touch targets */
+  button, a {
+    @apply min-h-[44px] min-w-[44px];
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Better mobile input handling */
+  input, textarea, select {
+    @apply text-base; /* Prevents zoom on iOS */
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Mobile viewport fix */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
