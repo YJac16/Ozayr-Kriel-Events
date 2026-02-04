@@ -28,7 +28,7 @@ const WhyChoose = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-50 mb-4">
             Why Choose Us?
           </h2>
           <p className="text-xl text-ink-300 max-w-2xl mx-auto">
@@ -53,7 +53,7 @@ const WhyChoose = () => {
                 <div className="w-16 h-16 bg-gold-500/20 rounded-full flex items-center justify-center mb-6 border border-gold-500/30">
                   <Icon className="w-8 h-8 text-gold-400" />
                 </div>
-                <h3 className="text-xl font-display font-bold text-cream-50 mb-3">
+                <h3 className="text-xl font-display font-bold text-gold-50 mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-ink-300 leading-relaxed">

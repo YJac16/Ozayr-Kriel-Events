@@ -27,7 +27,7 @@ const CTA = () => {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream-50">
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-gold-50">
             Let's Plan Something
             <span className="block text-gold-400">Beautiful Together</span>
           </h2>
@@ -41,7 +41,7 @@ const CTA = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleWhatsApp}
-              className="w-full sm:w-auto px-8 py-4 min-h-[56px] bg-green-600 text-white rounded-full font-semibold text-base sm:text-lg shadow-lg hover:bg-green-500 transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 min-h-[56px] bg-gold-500 text-ink-950 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:bg-gold-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-5 h-5" />
               Chat on WhatsApp

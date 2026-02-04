@@ -18,7 +18,7 @@ const Services = () => {
     { icon: Sparkles, title: 'Custom Events', description: 'Any celebration you can imagine. Your vision, my expertise, our collaboration.', color: 'gold' },
   ]
 
-  const cardClass = 'bg-ink-800/80 border border-ink-700 hover:border-gold-600/50 text-cream-50 rounded-2xl p-6 sm:p-8 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-gold-900/20'
+  const cardClass = 'bg-ink-800/80 border border-ink-700 hover:border-gold-600/50 text-gold-50 rounded-2xl p-6 sm:p-8 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-gold-900/20'
 
   return (
     <section
@@ -33,7 +33,7 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-50 mb-4">
             Our Services
           </h2>
           <p className="text-xl text-ink-300 max-w-2xl mx-auto">
@@ -58,7 +58,7 @@ const Services = () => {
                 <div className="mb-4">
                   <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-gold-400" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-display font-bold mb-3 text-cream-50">
+                <h3 className="text-xl sm:text-2xl font-display font-bold mb-3 text-gold-50">
                   {service.title}
                 </h3>
                 <p className="text-sm sm:text-base text-ink-300 leading-relaxed">

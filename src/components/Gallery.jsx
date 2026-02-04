@@ -45,7 +45,7 @@ const Gallery = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-50 mb-4">
             Gallery & Inspiration
           </h2>
           <p className="text-xl text-ink-300 max-w-2xl mx-auto">
@@ -82,7 +82,7 @@ const Gallery = () => {
                   className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-transparent flex items-end p-6"
                 >
                   <div>
-                    <h3 className="text-cream-50 font-display font-bold text-xl mb-1">
+                    <h3 className="text-gold-50 font-display font-bold text-xl mb-1">
                       {item.title}
                     </h3>
                     <p className="text-gold-400/90 text-sm">{item.category}</p>

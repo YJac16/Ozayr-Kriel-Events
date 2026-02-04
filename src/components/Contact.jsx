@@ -43,7 +43,7 @@ const Contact = () => {
     }
   }
 
-  const inputClass = 'w-full px-4 py-4 text-base rounded-xl border-2 border-ink-700 bg-ink-800/50 text-cream-50 placeholder-ink-500 focus:border-gold-500 focus:outline-none transition-colors min-h-[48px]'
+  const inputClass = 'w-full px-4 py-4 text-base rounded-xl border-2 border-ink-700 bg-ink-800/50 text-gold-50 placeholder-ink-500 focus:border-gold-500 focus:outline-none transition-colors min-h-[48px]'
   const labelClass = 'block text-sm font-medium text-ink-300 mb-2'
 
   return (
@@ -59,7 +59,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-50 mb-4">
             Get In Touch
           </h2>
           <p className="text-xl text-ink-300 max-w-2xl mx-auto">
@@ -166,7 +166,7 @@ const Contact = () => {
                   onClick={handleWhatsApp}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex-1 px-6 py-4 min-h-[56px] bg-green-600 text-white rounded-xl font-semibold hover:bg-green-500 transition-colors flex items-center justify-center gap-2 text-base"
+                  className="flex-1 px-6 py-4 min-h-[56px] bg-gold-500 text-ink-950 rounded-xl font-semibold hover:bg-gold-400 transition-colors flex items-center justify-center gap-2 text-base"
                 >
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
@@ -183,7 +183,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <div className="bg-ink-800/60 rounded-2xl p-8 border border-ink-700">
-              <h3 className="text-2xl font-display font-bold text-cream-50 mb-6">
+              <h3 className="text-2xl font-display font-bold text-gold-50 mb-6">
                 Contact Information
               </h3>
               <div className="space-y-6">
@@ -192,7 +192,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-gold-400" />
                   </div>
                   <div>
-                    <div className="font-semibold text-cream-50 mb-1">Email</div>
+                    <div className="font-semibold text-gold-50 mb-1">Email</div>
                     <a
                       href="mailto:info@ozayrkrielevents.com"
                       className="text-ink-300 hover:text-gold-400 transition-colors"
@@ -207,7 +207,7 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-gold-400" />
                   </div>
                   <div>
-                    <div className="font-semibold text-cream-50 mb-1">Phone</div>
+                    <div className="font-semibold text-gold-50 mb-1">Phone</div>
                     <a
                       href="tel:+27768279796"
                       className="text-ink-300 hover:text-gold-400 transition-colors"
@@ -222,7 +222,7 @@ const Contact = () => {
                     <MessageCircle className="w-6 h-6 text-gold-400" />
                   </div>
                   <div>
-                    <div className="font-semibold text-cream-50 mb-1">WhatsApp</div>
+                    <div className="font-semibold text-gold-50 mb-1">WhatsApp</div>
                     <button
                       onClick={handleWhatsApp}
                       className="text-ink-300 hover:text-gold-400 transition-colors text-left"

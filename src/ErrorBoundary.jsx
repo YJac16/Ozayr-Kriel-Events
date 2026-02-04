@@ -17,12 +17,20 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-          <h1>Something went wrong</h1>
-          <pre style={{ background: '#f5f5f5', padding: '10px', overflow: 'auto' }}>
+        <div
+          className="min-h-screen flex flex-col items-center justify-center p-8 bg-ink-950 text-gold-50"
+          style={{ fontFamily: 'sans-serif' }}
+        >
+          <h1 className="text-2xl font-bold text-gold-400 mb-4">Something went wrong</h1>
+          <pre className="bg-ink-800 border border-ink-700 text-gold-200 p-4 rounded-lg overflow-auto max-w-full mb-6">
             {this.state.error?.toString()}
           </pre>
-          <button onClick={() => window.location.reload()}>Reload Page</button>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-3 bg-gold-500 text-ink-950 font-semibold rounded-lg hover:bg-gold-400 transition-colors"
+          >
+            Reload Page
+          </button>
         </div>
       )
     }

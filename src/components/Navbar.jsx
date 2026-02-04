@@ -51,7 +51,7 @@ const Navbar = ({ isScrolled }) => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-cream-100 hover:text-gold-400 transition-colors font-medium"
+                className="text-gold-100 hover:text-gold-400 transition-colors font-medium"
               >
                 {item.name}
               </button>
@@ -60,7 +60,7 @@ const Navbar = ({ isScrolled }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-cream-100"
+            className="md:hidden text-gold-100"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -81,7 +81,7 @@ const Navbar = ({ isScrolled }) => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-cream-100 hover:text-gold-400 transition-colors font-medium py-2"
+                className="block w-full text-left text-gold-100 hover:text-gold-400 transition-colors font-medium py-2"
               >
                 {item.name}
               </button>

@@ -37,7 +37,7 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-50 mb-4">
             What Our Clients Say
           </h2>
           <div className="w-24 h-1 bg-gold-500 mx-auto rounded-full" />
@@ -59,7 +59,7 @@ const Testimonials = () => {
               </p>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-display font-bold text-xl text-cream-50 mb-1">
+                  <div className="font-display font-bold text-xl text-gold-50 mb-1">
                     {testimonials[currentIndex].name}
                   </div>
                   <div className="text-gold-400/90">{testimonials[currentIndex].event}</div>

@@ -49,16 +49,30 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
+          {/* Main logo - Metanoia Events Collective */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center"
+          >
+            <img
+              src="/Metanoia Events Collective Logo.png"
+              alt="Metanoia Events Collective"
+              className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto object-contain max-w-full px-4"
+            />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-block"
           >
-            <Sparkles className="w-12 h-12 text-gold-400 mx-auto mb-4" />
+            <Sparkles className="w-10 h-10 text-gold-400 mx-auto mb-2" />
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold text-cream-50 leading-tight px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gold-50 leading-tight px-2">
             <span className="block">Turning Your</span>
             <span className="block text-gold-400">Moments Into</span>
             <span className="block">Beautiful Memories</span>
@@ -68,7 +82,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg sm:text-xl md:text-2xl text-cream-200 max-w-2xl mx-auto font-light px-4"
+            className="text-base sm:text-lg md:text-xl text-gold-200/90 max-w-2xl mx-auto font-light px-4"
           >
             Elegant. Personal. Stress-Free Event Planning.
           </motion.p>

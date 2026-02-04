@@ -15,7 +15,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-50 mb-4">
             About Me
           </h2>
           <div className="w-24 h-1 bg-gold-500 mx-auto rounded-full" />
@@ -55,7 +55,7 @@ const About = () => {
                   className="text-center"
                 >
                   <Icon className={`w-8 h-8 ${color} mx-auto mb-2`} />
-                  <div className="text-2xl font-display font-bold text-cream-50">
+                  <div className="text-2xl font-display font-bold text-gold-50">
                     {label}
                   </div>
                 </motion.div>
