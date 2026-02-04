@@ -26,11 +26,7 @@ const Navbar = ({ isScrolled }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-ink-950/95 backdrop-blur-md shadow-lg shadow-black/20'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-ink-950/98 backdrop-blur-md border-b border-ink-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24 md:h-28">
@@ -39,8 +35,8 @@ const Navbar = ({ isScrolled }) => {
             className="flex items-center"
           >
             <img
-              src="/MEC Logo.png"
-              alt="Metanoia Events Collective"
+              src="/MEC%20Logo.png"
+              alt="MEC - Metanoia Events Collective"
               className="h-16 sm:h-20 md:h-24 w-auto object-contain"
             />
           </motion.div>

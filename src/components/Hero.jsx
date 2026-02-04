@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+
+const METANOIA_LOGO = '/Metanoia%20Events%20Collective%20Logo.png'
 
 const Hero = () => {
   const scrollToSection = (href) => {
@@ -49,27 +51,18 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          {/* Main logo - Metanoia Events Collective */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center"
-          >
-            <img
-              src="/Metanoia Events Collective Logo.png"
-              alt="Metanoia Events Collective"
-              className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto object-contain max-w-full px-4"
-            />
-          </motion.div>
-
+          {/* Central hero mark: Metanoia Events Collective logo (replaces star) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-block"
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-6"
           >
-            <Sparkles className="w-10 h-10 text-gold-400 mx-auto mb-2" />
+            <img
+              src={METANOIA_LOGO}
+              alt="Metanoia Events Collective"
+              className="h-28 sm:h-36 md:h-44 lg:h-52 w-auto object-contain max-w-full px-4"
+            />
           </motion.div>
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gold-50 leading-tight px-2">
