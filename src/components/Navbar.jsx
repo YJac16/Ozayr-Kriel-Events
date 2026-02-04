@@ -28,7 +28,7 @@ const Navbar = ({ isScrolled }) => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-cream-50/95 backdrop-blur-md shadow-md'
+          ? 'bg-ink-950/95 backdrop-blur-md shadow-lg shadow-black/20'
           : 'bg-transparent'
       }`}
     >
@@ -39,8 +39,8 @@ const Navbar = ({ isScrolled }) => {
             className="flex items-center"
           >
             <img
-              src="/OK Events.png"
-              alt="OK Events"
+              src="/MEC Logo.png"
+              alt="Metanoia Events Collective"
               className="h-16 sm:h-20 md:h-24 w-auto object-contain"
             />
           </motion.div>
@@ -51,7 +51,7 @@ const Navbar = ({ isScrolled }) => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sage-700 hover:text-champagne-600 transition-colors font-medium"
+                className="text-cream-100 hover:text-gold-400 transition-colors font-medium"
               >
                 {item.name}
               </button>
@@ -60,7 +60,7 @@ const Navbar = ({ isScrolled }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-sage-700"
+            className="md:hidden text-cream-100"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -74,14 +74,14 @@ const Navbar = ({ isScrolled }) => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-cream-50 border-t border-cream-200"
+          className="md:hidden bg-ink-900 border-t border-ink-700"
         >
           <div className="px-4 py-4 space-y-4">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-sage-700 hover:text-champagne-600 transition-colors font-medium py-2"
+                className="block w-full text-left text-cream-100 hover:text-gold-400 transition-colors font-medium py-2"
               >
                 {item.name}
               </button>

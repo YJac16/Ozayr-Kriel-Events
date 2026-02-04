@@ -10,46 +10,16 @@ import {
 
 const WhyChoose = () => {
   const features = [
-    {
-      icon: Shield,
-      title: 'Stress-Free Planning',
-      description:
-        'Leave the details to us. We handle everything so you can enjoy your event.',
-    },
-    {
-      icon: Heart,
-      title: 'Warm & Accommodating',
-      description:
-        "Friendly service with a personal touch. We're here to make your vision come true.",
-    },
-    {
-      icon: Palette,
-      title: 'Custom-Tailored Events',
-      description:
-        'Every event is unique. We create experiences that reflect your style and personality.',
-    },
-    {
-      icon: Users,
-      title: 'Reliable Vendors',
-      description:
-        'Trusted network of professionals ensuring quality and seamless execution.',
-    },
-    {
-      icon: DollarSign,
-      title: 'Budget-Friendly Solutions',
-      description:
-        'Beautiful events that respect your budget without compromising on quality.',
-    },
-    {
-      icon: Sparkles,
-      title: 'Passion-Driven Creativity',
-      description:
-        'We love what we do, and it shows in every detail of your celebration.',
-    },
+    { icon: Shield, title: 'Stress-Free Planning', description: 'Leave the details to us. We handle everything so you can enjoy your event.' },
+    { icon: Heart, title: 'Warm & Accommodating', description: "Friendly service with a personal touch. We're here to make your vision come true." },
+    { icon: Palette, title: 'Custom-Tailored Events', description: 'Every event is unique. We create experiences that reflect your style and personality.' },
+    { icon: Users, title: 'Reliable Vendors', description: 'Trusted network of professionals ensuring quality and seamless execution.' },
+    { icon: DollarSign, title: 'Budget-Friendly Solutions', description: 'Beautiful events that respect your budget without compromising on quality.' },
+    { icon: Sparkles, title: 'Passion-Driven Creativity', description: 'We love what we do, and it shows in every detail of your celebration.' },
   ]
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-ink-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,13 +28,13 @@ const WhyChoose = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-sage-900 mb-4">
-            Why Choose Ozayr?
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-cream-50 mb-4">
+            Why Choose Us?
           </h2>
-          <p className="text-xl text-sage-600 max-w-2xl mx-auto">
+          <p className="text-xl text-ink-300 max-w-2xl mx-auto">
             Experience the difference of personalized, passionate event planning
           </p>
-          <div className="w-24 h-1 bg-champagne-500 mx-auto mt-4 rounded-full" />
+          <div className="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -77,16 +47,16 @@ const WhyChoose = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-cream-50 rounded-2xl p-8 border border-cream-200 hover:border-champagne-300 transition-all duration-300 shadow-sm hover:shadow-md"
+                whileHover={{ scale: 1.03 }}
+                className="bg-ink-800/60 rounded-2xl p-8 border border-ink-700 hover:border-gold-600/40 transition-all duration-300 shadow-lg"
               >
-                <div className="w-16 h-16 bg-champagne-100 rounded-full flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-champagne-700" />
+                <div className="w-16 h-16 bg-gold-500/20 rounded-full flex items-center justify-center mb-6 border border-gold-500/30">
+                  <Icon className="w-8 h-8 text-gold-400" />
                 </div>
-                <h3 className="text-xl font-display font-bold text-sage-900 mb-3">
+                <h3 className="text-xl font-display font-bold text-cream-50 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-sage-700 leading-relaxed">
+                <p className="text-ink-300 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
