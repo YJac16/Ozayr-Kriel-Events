@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-ink-950 text-gold-50 py-12 px-4 sm:px-6 lg:px-8 border-t border-ink-800">
+    <footer className="bg-ink-950 text-gold-50 py-12 px-4 sm:px-6 lg:px-8 pb-[calc(2rem+env(safe-area-inset-bottom))] border-t border-ink-800">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -77,3 +77,5 @@ const Footer = () => {
     </footer>
   )
 }
+
+export default Footer
