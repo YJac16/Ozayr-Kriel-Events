@@ -1,20 +1,31 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Image as ImageIcon } from 'lucide-react'
 
 const Gallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
+  const galleryImages = [
+    'WhatsApp Image 2026-02-05 at 15.43.42 (1).jpeg',
+    'WhatsApp Image 2026-02-05 at 15.43.42.jpeg',
+    'WhatsApp Image 2026-02-05 at 15.43.44.jpeg',
+    'WhatsApp Image 2026-02-05 at 15.43.45.jpeg',
+    'WhatsApp Image 2026-02-05 at 15.44.00.jpeg',
+    'WhatsApp Image 2026-02-05 at 15.44.12 (1).jpeg',
+    'WhatsApp Image 2026-02-05 at 15.44.12 (2).jpeg',
+    'WhatsApp Image 2026-02-05 at 15.44.12.jpeg',
+    'WhatsApp Image 2026-02-05 at 15.44.33.jpeg',
+  ]
+
   const galleryItems = [
-    { id: 1, title: 'Elegant Wedding Setup', category: 'Weddings' },
-    { id: 2, title: 'Birthday Celebration', category: 'Birthdays' },
-    { id: 3, title: 'Corporate Event', category: 'Corporate' },
-    { id: 4, title: 'Kids Party Fun', category: 'Kids Parties' },
-    { id: 5, title: 'Baby Shower Bliss', category: 'Baby Showers' },
-    { id: 6, title: 'Custom Celebration', category: 'Custom' },
-    { id: 7, title: 'Intimate Gathering', category: 'Weddings' },
-    { id: 8, title: 'Grand Celebration', category: 'Birthdays' },
-    { id: 9, title: 'Team Building Event', category: 'Corporate' },
+    { id: 1, title: 'Elegant Wedding Setup', category: 'Weddings', image: galleryImages[0] },
+    { id: 2, title: 'Birthday Celebration', category: 'Birthdays', image: galleryImages[1] },
+    { id: 3, title: 'Corporate Event', category: 'Corporate', image: galleryImages[2] },
+    { id: 4, title: 'Kids Birthday Party', category: 'Kids Parties', image: galleryImages[3] },
+    { id: 5, title: 'Baby Shower Bliss', category: 'Baby Showers', image: galleryImages[4] },
+    { id: 6, title: 'Custom Celebration', category: 'Custom', image: galleryImages[5] },
+    { id: 7, title: 'Intimate Gathering', category: 'Weddings', image: galleryImages[6] },
+    { id: 8, title: 'Birthday Celebration', category: 'Birthdays', image: galleryImages[7] },
+    { id: 9, title: 'Team Building Event', category: 'Corporate', image: galleryImages[8] },
   ]
 
   const getGradient = (index) => {
@@ -71,10 +82,12 @@ const Gallery = () => {
                   hoveredIndex === index ? 'scale-105 ring-2 ring-gold-500/50' : ''
                 }`}
               >
-                <div
-                  className={`aspect-[4/5] bg-gradient-to-br ${getGradient(index)} flex items-center justify-center`}
-                >
-                  <ImageIcon className="w-16 h-16 text-gold-600/40" />
+                <div className={`aspect-[4/5] bg-gradient-to-br ${getGradient(index)} flex items-center justify-center overflow-hidden`}>
+                  <img
+                    src={`/${encodeURIComponent(item.image)}`}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <motion.div
                   initial={{ opacity: 0 }}

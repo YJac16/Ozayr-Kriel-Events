@@ -4,7 +4,7 @@ import {
   Heart,
   Palette,
   Users,
-  DollarSign,
+  Banknote,
   Sparkles,
 } from 'lucide-react'
 
@@ -14,7 +14,7 @@ const WhyChoose = () => {
     { icon: Heart, title: 'Warm & Accommodating', description: "Friendly service with a personal touch. We're here to make your vision come true." },
     { icon: Palette, title: 'Custom-Tailored Events', description: 'Every event is unique. We create experiences that reflect your style and personality.' },
     { icon: Users, title: 'Reliable Vendors', description: 'Trusted network of professionals ensuring quality and seamless execution.' },
-    { icon: DollarSign, title: 'Budget-Friendly Solutions', description: 'Beautiful events that respect your budget without compromising on quality.' },
+    { icon: Banknote, title: 'Value for Your Rand', description: 'Beautiful events that respect your budget (ZAR) without compromising on quality.' },
     { icon: Sparkles, title: 'Passion-Driven Creativity', description: 'We love what we do, and it shows in every detail of your celebration.' },
   ]
 
