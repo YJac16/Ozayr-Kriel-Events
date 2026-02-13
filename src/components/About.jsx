@@ -71,13 +71,12 @@ const About = () => {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-ink-700">
-              <div className="aspect-[4/5] bg-ink-800 flex items-center justify-center">
-                <div className="text-center text-ink-400">
-                  <div className="w-32 h-32 bg-ink-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-16 h-16 text-gold-500" />
-                  </div>
-                  <p className="text-sm font-medium">Portrait Placeholder</p>
-                </div>
+              <div className="aspect-[4/5] bg-ink-800 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/Portrait.jpeg"
+                  alt="Ozayr - Metanoia Events Collective"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold-600/20 rounded-full blur-2xl -z-10" />

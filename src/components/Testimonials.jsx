@@ -10,6 +10,7 @@ const Testimonials = () => {
     { name: 'Michael & Family', event: 'Birthday Party', text: "We hired Ozayr for our daughter's 10th birthday, and it exceeded all expectations! The kids had an amazing time, and we were able to relax and enjoy the celebration. Highly recommend!", rating: 5 },
     { name: 'Corporate Team', event: 'Corporate Event', text: "Ozayr organized our annual company event flawlessly. Professional, organized, and creative. Our team was impressed, and the event was a huge success. We'll definitely work with her again.", rating: 5 },
     { name: 'Emma & Friends', event: 'Baby Shower', text: "The baby shower Ozayr planned was beautiful and so thoughtfully organized. Every detail reflected our style, and the day was stress-free and memorable. Thank you for making it special!", rating: 5 },
+    { name: 'Kaamil & Zareefah', event: "Khawla's 1st Birthday Event", text: "Wslm, it was amazing. Shukran to the entire for an epic birthday party for our girl. You guys done an amazing job.", rating: 5 },
   ]
 
   useEffect(() => {

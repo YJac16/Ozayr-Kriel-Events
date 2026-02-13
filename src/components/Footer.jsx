@@ -1,77 +1,36 @@
-import { motion } from 'framer-motion'
-import { Heart, Instagram, Facebook, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
   return (
-    <footer className="bg-ink-950 text-gold-50 py-12 px-4 sm:px-6 lg:px-8 pb-[calc(2rem+env(safe-area-inset-bottom))] border-t border-ink-800">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <img
-              src="/Metanoia%20Events%20Collective%20Logo.png"
-              alt="Metanoia Events Collective"
-              className="h-14 w-auto object-contain mb-4"
-            />
-            <p className="text-ink-300 leading-relaxed">
-              Turning your moments into beautiful memories with elegant,
-              personal, and stress-free event planning.
-            </p>
+    <footer className="bg-ink-100 text-ink-800 border-t border-ink-200/60">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <div className="text-center md:text-center space-y-6">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-x-6 gap-y-1 text-sm tracking-wide">
+            <span>© Metanoia Events Collective (Pty) Ltd</span>
+            <span className="hidden sm:inline text-ink-400">·</span>
+            <span>All Rights Reserved</span>
+            <span className="hidden sm:inline text-ink-400">·</span>
+            <span>Established 2026</span>
           </div>
-
-          <div>
-            <h4 className="font-display font-semibold text-lg mb-4 text-gold-400">Quick Links</h4>
-            <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Gallery', 'Contact'].map((label, i) => (
-                <li key={label}>
-                  <a
-                    href={`#${label.toLowerCase()}`}
-                    className="text-ink-300 hover:text-gold-400 transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-x-6 gap-y-1 text-sm text-ink-600">
+            <span>VAT No: 9303951264</span>
+            <span className="hidden sm:inline text-ink-400">·</span>
+            <span>Reg No: 2026/059643/07</span>
           </div>
-
-          <div>
-            <h4 className="font-display font-semibold text-lg mb-4 text-gold-400">Connect</h4>
-            <div className="flex gap-4">
-              <motion.a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 bg-ink-800 rounded-full flex items-center justify-center hover:bg-gold-600 text-gold-50 transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 bg-ink-800 rounded-full flex items-center justify-center hover:bg-gold-600 text-gold-50 transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="mailto:info@ozayrkrielevents.com"
-                whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 bg-ink-800 rounded-full flex items-center justify-center hover:bg-gold-600 text-gold-50 transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-              </motion.a>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-ink-800 pt-8 text-center">
-          <p className="text-ink-400 flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-gold-500" /> by Metanoia Events Collective © {currentYear}
-          </p>
+          <nav className="flex flex-col sm:flex-row sm:justify-center gap-4 sm:gap-8 pt-2" aria-label="Legal">
+            <Link
+              to="/privacy-policy"
+              className="text-sm text-ink-700 hover:text-ink-900 underline underline-offset-2 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms-and-conditions"
+              className="text-sm text-ink-700 hover:text-ink-900 underline underline-offset-2 transition-colors"
+            >
+              Terms & Conditions
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

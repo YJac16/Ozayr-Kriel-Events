@@ -14,18 +14,47 @@ const Gallery = () => {
     'WhatsApp Image 2026-02-05 at 15.44.12 (2).jpeg',
     'WhatsApp Image 2026-02-05 at 15.44.12.jpeg',
     'WhatsApp Image 2026-02-05 at 15.44.33.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.03 (1).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.03 (2).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.03.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.11.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.13 (1).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.13 (2).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.13.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.14 (1).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.14 (2).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.14 (3).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.14.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.15 (1).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.32.15.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.56.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.57 (1).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.57 (2).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.57 (3).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.57.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.58 (1).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.58 (2).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.58 (3).jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.58.jpeg',
+    'WhatsApp Image 2026-02-12 at 11.51.59.jpeg',
   ]
 
-  const galleryItems = [
-    { id: 1, title: 'Elegant Wedding Setup', category: 'Weddings', image: galleryImages[0] },
-    { id: 2, title: 'Birthday Celebration', category: 'Birthdays', image: galleryImages[1] },
-    { id: 3, title: 'Corporate Event', category: 'Corporate', image: galleryImages[2] },
-    { id: 4, title: 'Kids Birthday Party', category: 'Kids Parties', image: galleryImages[3] },
-    { id: 5, title: 'Baby Shower Bliss', category: 'Baby Showers', image: galleryImages[4] },
-    { id: 6, title: 'Custom Celebration', category: 'Custom', image: galleryImages[5] },
-    { id: 7, title: 'Intimate Gathering', category: 'Weddings', image: galleryImages[6] },
-    { id: 8, title: 'Birthday Celebration', category: 'Birthdays', image: galleryImages[7] },
-    { id: 9, title: 'Team Building Event', category: 'Corporate', image: galleryImages[8] },
+  const categories = ['Weddings', 'Birthdays', 'Corporate', 'Kids Parties', 'Baby Showers', 'Custom']
+  const galleryItems = galleryImages.map((image, i) => ({
+    id: i + 1,
+    title: ['Elegant Wedding Setup', 'Birthday Celebration', 'Corporate Event', 'Kids Birthday Party', 'Baby Shower Bliss', 'Custom Celebration', 'Intimate Gathering', 'Grand Celebration', 'Team Building', 'Event Highlights', 'Celebration Moments', 'Special Day', 'Party Setup', 'Guest Experience', 'Decor & Styling', 'Cake & Treats', 'Venue View', 'Memorable Moments', 'Festive Gathering', 'Birthday Fun', 'Kids Party', 'Family Celebration', 'Table Setting', 'Event Styling', 'Moments to Remember', 'Joyful Celebration', 'Beautiful Details', 'Happy Guests', 'Event Day', 'Celebration Vibes', 'Sweet Moments', 'Party Time', 'Our Work'][i] || 'Event',
+    category: categories[i % categories.length],
+    image,
+  }))
+
+  const galleryVideos = [
+    'WhatsApp Video 2026-02-05 at 15.43.53.mp4',
+    'WhatsApp Video 2026-02-05 at 15.44.04.mp4',
+    'WhatsApp Video 2026-02-05 at 15.44.10.mp4',
+    'WhatsApp Video 2026-02-05 at 15.44.19.mp4',
+    'WhatsApp Video 2026-02-05 at 15.44.28.mp4',
+    'WhatsApp Video 2026-02-05 at 15.44.32.mp4',
+    'WhatsApp Video 2026-02-12 at 11.32.09.mp4',
   ]
 
   const getGradient = (index) => {
@@ -105,6 +134,40 @@ const Gallery = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-20"
+        >
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-gold-50 mb-6 text-center">
+            Event Videos
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryVideos.map((video, index) => (
+              <motion.div
+                key={video}
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="rounded-2xl overflow-hidden border border-ink-700 shadow-lg bg-ink-900"
+              >
+                <video
+                  src={`/${encodeURIComponent(video)}`}
+                  controls
+                  playsInline
+                  className="w-full aspect-video object-cover"
+                  preload="metadata"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
