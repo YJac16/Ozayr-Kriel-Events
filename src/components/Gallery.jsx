@@ -1,76 +1,16 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { ExternalLink } from 'lucide-react'
+import { getGalleryItems, galleryVideos } from '../data/galleryData'
+
+const PREVIEW_COUNT = 3
+const gradients = [
+  'from-ink-800 to-ink-700', 'from-ink-700 to-ink-800', 'from-ink-800 to-ink-900',
+]
 
 const Gallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
-
-  const galleryImages = [
-    'WhatsApp Image 2026-02-05 at 15.43.42 (1).jpeg',
-    'WhatsApp Image 2026-02-05 at 15.43.42.jpeg',
-    'WhatsApp Image 2026-02-05 at 15.43.44.jpeg',
-    'WhatsApp Image 2026-02-05 at 15.43.45.jpeg',
-    'WhatsApp Image 2026-02-05 at 15.44.00.jpeg',
-    'WhatsApp Image 2026-02-05 at 15.44.12 (1).jpeg',
-    'WhatsApp Image 2026-02-05 at 15.44.12 (2).jpeg',
-    'WhatsApp Image 2026-02-05 at 15.44.12.jpeg',
-    'WhatsApp Image 2026-02-05 at 15.44.33.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.03 (1).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.03 (2).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.03.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.11.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.13 (1).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.13 (2).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.13.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.14 (1).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.14 (2).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.14 (3).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.14.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.15 (1).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.32.15.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.56.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.57 (1).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.57 (2).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.57 (3).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.57.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.58 (1).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.58 (2).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.58 (3).jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.58.jpeg',
-    'WhatsApp Image 2026-02-12 at 11.51.59.jpeg',
-  ]
-
-  const categories = ['Weddings', 'Birthdays', 'Corporate', 'Kids Parties', 'Baby Showers', 'Custom']
-  const galleryItems = galleryImages.map((image, i) => ({
-    id: i + 1,
-    title: ['Elegant Wedding Setup', 'Birthday Celebration', 'Corporate Event', 'Kids Birthday Party', 'Baby Shower Bliss', 'Custom Celebration', 'Intimate Gathering', 'Grand Celebration', 'Team Building', 'Event Highlights', 'Celebration Moments', 'Special Day', 'Party Setup', 'Guest Experience', 'Decor & Styling', 'Cake & Treats', 'Venue View', 'Memorable Moments', 'Festive Gathering', 'Birthday Fun', 'Kids Party', 'Family Celebration', 'Table Setting', 'Event Styling', 'Moments to Remember', 'Joyful Celebration', 'Beautiful Details', 'Happy Guests', 'Event Day', 'Celebration Vibes', 'Sweet Moments', 'Party Time', 'Our Work'][i] || 'Event',
-    category: categories[i % categories.length],
-    image,
-  }))
-
-  const galleryVideos = [
-    'WhatsApp Video 2026-02-05 at 15.43.53.mp4',
-    'WhatsApp Video 2026-02-05 at 15.44.04.mp4',
-    'WhatsApp Video 2026-02-05 at 15.44.10.mp4',
-    'WhatsApp Video 2026-02-05 at 15.44.19.mp4',
-    'WhatsApp Video 2026-02-05 at 15.44.28.mp4',
-    'WhatsApp Video 2026-02-05 at 15.44.32.mp4',
-    'WhatsApp Video 2026-02-12 at 11.32.09.mp4',
-  ]
-
-  const getGradient = (index) => {
-    const gradients = [
-      'from-ink-800 to-ink-700',
-      'from-ink-700 to-ink-800',
-      'from-ink-800 to-ink-900',
-      'from-ink-900 to-ink-800',
-      'from-ink-700 to-ink-900',
-      'from-ink-800 to-ink-700',
-      'from-ink-900 to-ink-700',
-      'from-ink-700 to-ink-800',
-      'from-ink-800 to-ink-900',
-    ]
-    return gradients[index % gradients.length]
-  }
+  const galleryItems = getGalleryItems().slice(0, PREVIEW_COUNT)
 
   return (
     <section
@@ -94,7 +34,7 @@ const Gallery = () => {
           <div className="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
           {galleryItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -104,14 +44,14 @@ const Gallery = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
-              className="break-inside-avoid mb-6 relative group cursor-pointer"
+              className="relative group cursor-pointer"
             >
               <div
                 className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-ink-700 ${
-                  hoveredIndex === index ? 'scale-105 ring-2 ring-gold-500/50' : ''
+                  hoveredIndex === index ? 'scale-[1.02] ring-2 ring-gold-500/50' : ''
                 }`}
               >
-                <div className={`aspect-[4/5] bg-gradient-to-br ${getGradient(index)} flex items-center justify-center overflow-hidden`}>
+                <div className={`aspect-[4/5] bg-gradient-to-br ${gradients[index % gradients.length]} overflow-hidden`}>
                   <img
                     src={`/${encodeURIComponent(item.image)}`}
                     alt={item.title}
@@ -136,6 +76,24 @@ const Gallery = () => {
         </div>
 
         <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mt-10"
+        >
+          <a
+            href="/gallery"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gold-500/60 text-gold-50 hover:bg-gold-500/10 hover:border-gold-500 transition-colors font-medium"
+          >
+            View more
+            <ExternalLink className="w-4 h-4" aria-hidden />
+          </a>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -146,7 +104,7 @@ const Gallery = () => {
             Event Videos
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryVideos.map((video, index) => (
+            {galleryVideos.slice(0, 3).map((video, index) => (
               <motion.div
                 key={video}
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -166,6 +124,17 @@ const Gallery = () => {
                 </video>
               </motion.div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <a
+              href="/gallery"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 text-sm font-medium transition-colors"
+            >
+              View all videos in gallery
+              <ExternalLink className="w-4 h-4" aria-hidden />
+            </a>
           </div>
         </motion.div>
       </div>

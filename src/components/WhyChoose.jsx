@@ -14,7 +14,7 @@ const WhyChoose = () => {
     { icon: Heart, title: 'Warm & Accommodating', description: "Friendly service with a personal touch. We're here to make your vision come true." },
     { icon: Palette, title: 'Custom-Tailored Events', description: 'Every event is unique. We create experiences that reflect your style and personality.' },
     { icon: Users, title: 'Reliable Vendors', description: 'Trusted network of professionals ensuring quality and seamless execution.' },
-    { icon: Banknote, title: 'Value for Your Budget', description: 'We believe every celebration should feel extraordinary — without stretching your finances. At Metanoia Events Collective, we work closely with you to understand your budget and maximise every detail, ensuring you receive exceptional quality, beautiful styling, and seamless coordination at a price that makes sense. Thoughtful planning, smart sourcing, and honest pricing mean you always get real value — never compromise.' },
+    { icon: Banknote, title: 'Value for Your Budget', description: 'Exceptional celebrations thoughtfully planned to maximise your budget without compromise.' },
     { icon: Sparkles, title: 'Passion-Driven Creativity', description: 'We love what we do, and it shows in every detail of your celebration.' },
   ]
 
