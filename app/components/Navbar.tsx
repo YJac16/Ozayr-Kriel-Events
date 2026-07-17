@@ -9,7 +9,7 @@ import { BrandLogo } from './BrandLogo'
 
 const links = [
   { label: 'Services', href: '/#services' },
-  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'Gallery', href: '/#gallery' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ]

@@ -34,11 +34,32 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 pb-28 pt-24 text-center sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+          className="mb-8 flex justify-center"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={publicPath('Metanoia Events Collective Logo.png')}
+            alt="Metanoia Events Collective"
+            className="h-20 w-auto sm:h-24 md:h-28"
+          />
+        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-brand-gold/90 sm:text-sm"
+          className="mb-3 font-display text-sm font-medium uppercase tracking-[0.28em] text-brand-gold sm:text-base"
+        >
+          Metanoia Events Collective
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.08 }}
+          className="mb-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-cream/60 sm:text-sm"
         >
           Cape Town · Events & Experiences
         </motion.p>
@@ -79,20 +100,20 @@ export function Hero() {
             Book on WhatsApp
           </motion.a>
           <motion.a
-            href="#portfolio"
+            href="#gallery"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:border-brand-gold/50 hover:bg-white/10"
           >
-            View Our Work
+            View Gallery
           </motion.a>
         </motion.div>
       </div>
 
       <motion.a
-        href="#portfolio"
+        href="#gallery"
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-brand-cream/70"
-        aria-label="Scroll to portfolio"
+        aria-label="Scroll to gallery"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{

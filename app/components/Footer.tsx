@@ -7,7 +7,7 @@ import { BrandLogo } from './BrandLogo'
 const quick = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services' },
-  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'Gallery', href: '/#gallery' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ]
@@ -19,7 +19,10 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           <div className="lg:col-span-1">
             <BrandLogo imageClassName="h-10 w-auto opacity-90" width={200} height={56} />
-            <p className="mt-4 text-sm leading-relaxed text-brand-cream/60">
+            <p className="mt-4 text-sm font-medium text-brand-cream/80">
+              {SITE.legalName}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-brand-cream/60">
               Luxury event experiences in Cape Town — planned with heart and
               delivered with precision.
             </p>
@@ -107,7 +110,12 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-xs text-brand-cream/45 sm:flex-row sm:text-left">
-          <p>© {new Date().getFullYear()} {SITE.name} (Pty) Ltd</p>
+          <div className="space-y-1">
+            <p>© {new Date().getFullYear()} {SITE.legalName}</p>
+            <p>
+              Reg No: {SITE.regNo} | VAT No: {SITE.vatNo}
+            </p>
+          </div>
           <nav className="flex flex-wrap justify-center gap-6">
             <Link
               href="/terms-and-conditions"

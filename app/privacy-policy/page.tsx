@@ -25,7 +25,8 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="mt-2 text-sm text-brand-cream/50">
-            Metanoia Events Collective (Pty) Ltd · Established 2026
+            Metanoia Events Collective (Pty) Ltd · Reg No: 2026/059643/07 · VAT
+            No: 9303951264
           </p>
         </header>
 

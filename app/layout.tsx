@@ -18,36 +18,47 @@ const inter = Inter({
 })
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://metanoia-events.vercel.app'
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  'https://metanoiaeventscollective.co.za'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Metanoia Events Collective | Luxury Events Cape Town',
+    default: 'Metanoia Events Collective (Pty) Ltd | Luxury Events Cape Town',
     template: '%s | Metanoia Events Collective',
   },
   description:
-    'Luxury event planning in Cape Town — weddings, birthdays, braais, and open-air cinema. Book your unforgettable celebration via WhatsApp.',
+    'Metanoia Events Collective (Pty) Ltd — luxury event planning in Cape Town. Weddings, birthdays, braais, and open-air cinema. Book via WhatsApp.',
   keywords: [
     'event planner Cape Town',
     'wedding planner',
     'birthday party',
     'braai events',
     'outdoor cinema',
-    'Metanoia Events',
+    'Metanoia Events Collective',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+    shortcut: '/favicon-32x32.png',
+  },
   openGraph: {
-    title: 'Metanoia Events Collective | Luxury Event Experiences',
+    title: 'Metanoia Events Collective (Pty) Ltd',
     description:
       'From weddings to open-air cinema — beautifully executed events in Cape Town.',
     url: siteUrl,
-    siteName: 'Metanoia Events Collective',
+    siteName: 'Metanoia Events Collective (Pty) Ltd',
     locale: 'en_ZA',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Metanoia Events Collective',
+    title: 'Metanoia Events Collective (Pty) Ltd',
     description: 'Luxury event experiences, beautifully executed in Cape Town.',
   },
   robots: { index: true, follow: true },

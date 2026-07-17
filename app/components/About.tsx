@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Heart, Sparkles, Users } from 'lucide-react'
-import { publicPath } from '@/lib/media'
 
 const values = [
   { Icon: Heart, label: 'Passion' },
@@ -37,7 +36,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="order-2 space-y-6 lg:order-1"
           >
             <p className="font-display text-2xl text-brand-gold md:text-3xl">
               Hi, I&apos;m Ozayr
@@ -74,20 +73,23 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative mx-auto max-w-md lg:max-w-none"
+            className="relative order-1 mx-auto w-full max-w-md lg:order-2 lg:max-w-none"
           >
-            <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
-              <div className="relative aspect-[4/5] bg-brand-ink">
+            <div className="overflow-hidden rounded-3xl border border-brand-gold/30 shadow-[0_0_60px_rgba(212,175,55,0.12)]">
+              <div className="relative aspect-[3/4] min-h-[320px] bg-brand-ink sm:min-h-[420px]">
                 <Image
-                  src={publicPath('Portrait.jpeg')}
-                  alt="Ozayr — Metanoia Events Collective"
+                  src="/Portrait.jpeg"
+                  alt="Ozayr Kriel — Metanoia Events Collective"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  loading="lazy"
+                  priority
                 />
               </div>
             </div>
+            <p className="mt-4 text-center font-display text-sm tracking-wide text-brand-gold/90 lg:text-left">
+              Ozayr Kriel · Founder
+            </p>
             <div
               className="absolute -bottom-6 -right-6 -z-10 h-40 w-40 rounded-full bg-brand-gold/15 blur-3xl"
               aria-hidden

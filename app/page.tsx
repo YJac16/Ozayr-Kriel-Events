@@ -1,6 +1,6 @@
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { Portfolio } from './components/Portfolio'
+import { GalleryPreview } from './components/GalleryPreview'
 import { Services } from './components/Services'
 import { About } from './components/About'
 import { WhyChoose } from './components/WhyChoose'
@@ -16,7 +16,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <Portfolio />
+        <GalleryPreview />
         <Services />
         <About />
         <WhyChoose />

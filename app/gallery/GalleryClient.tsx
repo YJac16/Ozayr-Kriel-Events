@@ -2,14 +2,17 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react'
 import {
   PORTFOLIO_ITEMS,
   CATEGORY_LABELS,
   type PortfolioCategory,
 } from '@/lib/portfolio'
 import { publicPath } from '@/lib/media'
+import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
 
 const filterKeys: Array<PortfolioCategory | 'all'> = [
   'all',
@@ -19,7 +22,7 @@ const filterKeys: Array<PortfolioCategory | 'all'> = [
   'cinema',
 ]
 
-export function Portfolio() {
+export default function GalleryClient() {
   const [cat, setCat] = useState<PortfolioCategory | 'all'>('all')
   const [lightbox, setLightbox] = useState<number | null>(null)
 
@@ -48,97 +51,77 @@ export function Portfolio() {
     return () => window.removeEventListener('keydown', onKey)
   }, [lightbox, filtered.length, closeLightbox])
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    show: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.04 * i, duration: 0.45 },
-    }),
-  }
-
   return (
-    <section
-      id="portfolio"
-      className="scroll-mt-24 bg-brand-black py-20 sm:py-28 md:py-32"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center md:mb-16"
-        >
-          <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">
-            Our Work
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-brand-cream/70">
-            Real celebrations we&apos;ve crafted — every frame tells a story of
-            joy, detail, and presence.
-          </p>
-          <div className="mx-auto mt-6 h-px w-20 bg-brand-gold" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-10 flex flex-wrap justify-center gap-2 sm:gap-3"
-        >
-          {filterKeys.map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setCat(key)}
-              className={`min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 sm:px-5 ${
-                cat === key
-                  ? 'bg-brand-gold text-brand-black shadow-md shadow-brand-gold/20'
-                  : 'border border-white/15 bg-white/5 text-brand-cream/85 hover:border-brand-gold/40 hover:text-brand-gold'
-              }`}
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-brand-black pb-20 pt-28 sm:pt-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 sm:mb-12">
+            <Link
+              href="/#gallery"
+              className="mb-4 inline-flex items-center gap-2 text-sm text-brand-cream/60 transition-colors hover:text-brand-gold"
             >
-              {CATEGORY_LABELS[key]}
-            </button>
-          ))}
-        </motion.div>
+              <ArrowLeft className="h-4 w-4" />
+              Back to home
+            </Link>
+            <h1 className="font-display text-4xl font-semibold text-white md:text-5xl">
+              Gallery
+            </h1>
+            <p className="mt-3 max-w-xl text-brand-cream/70">
+              Every celebration we stage — browse by category or open any image
+              for a closer look.
+            </p>
+          </div>
 
-        <motion.div
-          layout
-          className="columns-1 gap-4 sm:columns-2 sm:gap-5 lg:columns-3 lg:gap-6"
-        >
-          {filtered.map((item, index) => (
-            <motion.button
-              key={`${item.src}-${index}`}
-              type="button"
-              layout
-              custom={index}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-40px' }}
-              variants={itemVariants}
-              onClick={() => setLightbox(index)}
-              className="group relative mb-4 w-full break-inside-avoid overflow-hidden rounded-2xl sm:mb-5 lg:mb-6"
-            >
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-ink">
-                <Image
-                  src={publicPath(item.src)}
-                  alt={item.label}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-brand-black/0 transition-colors duration-400 group-hover:bg-brand-gold/25" />
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-brand-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100">
-                  <p className="w-full p-5 text-left font-display text-lg font-medium text-white">
-                    {item.label}
-                  </p>
+          <div className="mb-10 flex flex-wrap gap-2 sm:gap-3">
+            {filterKeys.map((key) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => {
+                  setCat(key)
+                  setLightbox(null)
+                }}
+                className={`min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 sm:px-5 ${
+                  cat === key
+                    ? 'bg-brand-gold text-brand-black shadow-md shadow-brand-gold/20'
+                    : 'border border-white/15 bg-white/5 text-brand-cream/85 hover:border-brand-gold/40 hover:text-brand-gold'
+                }`}
+              >
+                {CATEGORY_LABELS[key]}
+              </button>
+            ))}
+          </div>
+
+          <div className="columns-1 gap-4 sm:columns-2 sm:gap-5 lg:columns-3 lg:gap-6">
+            {filtered.map((item, index) => (
+              <button
+                key={`${item.src}-${index}`}
+                type="button"
+                onClick={() => setLightbox(index)}
+                className="group relative mb-4 w-full break-inside-avoid overflow-hidden rounded-2xl sm:mb-5 lg:mb-6"
+              >
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-ink">
+                  <Image
+                    src={publicPath(item.src)}
+                    alt={item.label}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-brand-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <p className="w-full p-5 text-left font-display text-lg font-medium text-white">
+                      {item.label}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.button>
-          ))}
-        </motion.div>
-      </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </main>
+      <Footer />
 
       <AnimatePresence>
         {lightbox !== null && filtered[lightbox] && (
@@ -207,6 +190,6 @@ export function Portfolio() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </>
   )
 }
