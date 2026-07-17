@@ -1,14 +1,7 @@
 import { motion } from 'framer-motion'
-import { MessageCircle, ArrowRight } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 
 const CTA = () => {
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   const handleWhatsApp = () => {
     const whatsappLink = 'https://wa.link/r450xo'
     const message = encodeURIComponent(
@@ -36,7 +29,7 @@ const CTA = () => {
             and create memories that last a lifetime.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 px-4 w-full sm:w-auto">
+          <div className="flex justify-center items-center pt-8 px-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -45,16 +38,6 @@ const CTA = () => {
             >
               <MessageCircle className="w-5 h-5" />
               Chat on WhatsApp
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('#contact')}
-              className="w-full sm:w-auto px-8 py-4 min-h-[56px] bg-transparent text-gold-400 rounded-full font-semibold text-base sm:text-lg border-2 border-gold-500 hover:bg-gold-500/10 transition-all duration-300 flex items-center justify-center gap-2 group"
-            >
-              Send a Message
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </div>
         </motion.div>

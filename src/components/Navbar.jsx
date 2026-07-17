@@ -6,7 +6,6 @@ const Navbar = ({ isScrolled }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Gallery', href: '#gallery' },
@@ -17,8 +16,13 @@ const Navbar = ({ isScrolled }) => {
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
-      setIsOpen(false)
     }
+    setIsOpen(false)
+  }
+
+  const goHome = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setIsOpen(false)
   }
 
   return (
@@ -30,16 +34,19 @@ const Navbar = ({ isScrolled }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24 md:h-28">
-          <motion.div
+          <motion.button
+            type="button"
             whileHover={{ scale: 1.05 }}
-            className="flex items-center"
+            onClick={goHome}
+            className="flex items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400"
+            aria-label="Metanoia Events Collective — Home"
           >
             <img
               src="/MEC%20Logo.png"
               alt="MEC - Metanoia Events Collective"
               className="h-16 sm:h-20 md:h-24 w-auto object-contain"
             />
-          </motion.div>
+          </motion.button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
@@ -58,6 +65,7 @@ const Navbar = ({ isScrolled }) => {
           <button
             className="md:hidden text-gold-100"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

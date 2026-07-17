@@ -8,7 +8,6 @@ import { WHATSAPP_HREF } from '@/lib/whatsapp'
 import { BrandLogo } from './BrandLogo'
 
 const links = [
-  { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services' },
   { label: 'Portfolio', href: '/#portfolio' },
   { label: 'About', href: '/#about' },
