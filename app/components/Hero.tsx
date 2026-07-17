@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
 import { publicPath } from '@/lib/media'
 import { WHATSAPP_HREF } from '@/lib/whatsapp'
 
@@ -110,22 +109,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <motion.a
-        href="#gallery"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-brand-cream/70"
-        aria-label="Scroll to gallery"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{
-          opacity: { delay: 1, duration: 0.5 },
-          y: { repeat: Infinity, duration: 2.2, ease: 'easeInOut' },
-        }}
-      >
-        <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
-          Explore
-        </span>
-        <ChevronDown className="h-6 w-6" />
-      </motion.a>
     </section>
   )
 }
