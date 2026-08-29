@@ -6,7 +6,6 @@ export const SITE = {
   legalName: 'Metanoia Events Collective (Pty) Ltd',
   regNo: '2026/059643/07',
   vatNo: '9303951264',
-  email: 'info@ozayrkrielevents.com',
   phone: '+27 76 827 9796',
   phoneHref: 'tel:+27768279796',
 } as const

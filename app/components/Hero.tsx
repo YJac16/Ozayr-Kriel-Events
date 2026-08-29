@@ -41,9 +41,9 @@ export function Hero() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={publicPath('Metanoia Events Collective Logo.png')}
+            src={publicPath('metanoia-logo.png')}
             alt="Metanoia Events Collective"
-            className="h-20 w-auto sm:h-24 md:h-28"
+            className="h-24 w-auto mix-blend-screen sm:h-28 md:h-32"
           />
         </motion.div>
         <motion.p
