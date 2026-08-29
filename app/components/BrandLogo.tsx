@@ -34,7 +34,7 @@ export function BrandLogo({
         alt=""
         width={80}
         height={124}
-        className="h-10 w-auto object-contain sm:h-11"
+        className="h-10 w-auto object-contain mix-blend-screen sm:h-11"
         priority={priority}
       />
       <span className="flex flex-col items-start leading-none">

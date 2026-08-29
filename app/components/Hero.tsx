@@ -43,7 +43,7 @@ export function Hero() {
           <img
             src={publicPath('metanoia-logo.png')}
             alt="Metanoia Events Collective"
-            className="h-24 w-auto sm:h-28 md:h-32"
+            className="h-24 w-auto mix-blend-screen sm:h-28 md:h-32"
           />
         </motion.div>
         <motion.p
