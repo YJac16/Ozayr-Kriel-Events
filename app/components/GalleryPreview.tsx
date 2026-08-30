@@ -1,18 +1,43 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { PORTFOLIO_ITEMS } from '@/lib/portfolio'
+import { GALLERY_PREVIEW_ITEMS } from '@/lib/portfolio'
 import { publicPath } from '@/lib/media'
+import { SnapCoverflow } from './SnapCoverflow'
 
-const PREVIEW_COUNT = 3
+function PreviewCard({
+  src,
+  label,
+  className,
+}: {
+  src: string
+  label: string
+  className?: string
+}) {
+  return (
+    <div
+      className={`relative aspect-[4/5] w-[min(72vw,16rem)] overflow-hidden rounded-2xl bg-brand-ink sm:w-[min(68vw,18rem)] ${className ?? ''}`}
+    >
+      <Image
+        src={publicPath(src)}
+        alt={label}
+        fill
+        className="object-cover"
+        sizes="72vw"
+        draggable={false}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent" />
+    </div>
+  )
+}
 
 export function GalleryPreview() {
-  const preview = useMemo(() => PORTFOLIO_ITEMS.slice(0, PREVIEW_COUNT), [])
-  const [failed, setFailed] = useState<Record<string, boolean>>({})
+  const [activeIndex, setActiveIndex] = useState(0)
+  const active = GALLERY_PREVIEW_ITEMS[activeIndex]
 
   return (
     <section
@@ -37,10 +62,35 @@ export function GalleryPreview() {
           <div className="mx-auto mt-6 h-px w-20 bg-brand-gold" />
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6">
-          {preview.map((item, index) => (
+        <div className="lg:hidden">
+          <SnapCoverflow
+            ariaLabel="Gallery highlights"
+            onActiveChange={setActiveIndex}
+          >
+            {GALLERY_PREVIEW_ITEMS.map((item) => (
+              <PreviewCard key={item.src} src={item.src} label={item.label} />
+            ))}
+          </SnapCoverflow>
+          {active && (
             <motion.div
-              key={`${item.src}-${index}`}
+              key={active.src}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="mx-auto mt-2 max-w-sm px-4 text-center"
+            >
+              <p className="font-display text-xl text-white">{active.label}</p>
+              <p className="mt-1 text-sm capitalize text-brand-gold/90">
+                {active.category.replace('_', ' ')}
+              </p>
+            </motion.div>
+          )}
+        </div>
+
+        <div className="hidden gap-4 sm:grid-cols-2 sm:gap-5 lg:grid lg:grid-cols-4 lg:gap-6">
+          {GALLERY_PREVIEW_ITEMS.map((item, index) => (
+            <motion.div
+              key={item.src}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -48,23 +98,14 @@ export function GalleryPreview() {
               className="group relative overflow-hidden rounded-2xl"
             >
               <div className="relative aspect-[4/5] w-full bg-brand-ink">
-                {!failed[item.src] ? (
-                  <Image
-                    src={publicPath(item.src)}
-                    alt={item.label}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                    priority={index === 0}
-                    onError={() =>
-                      setFailed((prev) => ({ ...prev, [item.src]: true }))
-                    }
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center p-4 text-center text-sm text-brand-cream/50">
-                    {item.label}
-                  </div>
-                )}
+                <Image
+                  src={publicPath(item.src)}
+                  alt={item.label}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent" />
                 <p className="absolute bottom-0 left-0 right-0 p-4 font-display text-lg text-white">
                   {item.label}

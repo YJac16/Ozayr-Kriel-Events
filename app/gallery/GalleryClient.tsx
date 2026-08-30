@@ -11,6 +11,7 @@ import {
   type PortfolioCategory,
 } from '@/lib/portfolio'
 import { publicPath } from '@/lib/media'
+import { SnapCoverflow } from '../components/SnapCoverflow'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 
@@ -22,9 +23,38 @@ const filterKeys: Array<PortfolioCategory | 'all'> = [
   'cinema',
 ]
 
+function GalleryCard({
+  label,
+  src,
+  onOpen,
+}: {
+  label: string
+  src: string
+  onOpen?: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="relative aspect-[4/5] w-[min(72vw,16rem)] overflow-hidden rounded-2xl bg-brand-ink sm:w-[min(68vw,18rem)]"
+    >
+      <Image
+        src={publicPath(src)}
+        alt={label}
+        fill
+        className="object-cover"
+        sizes="72vw"
+        draggable={false}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/85 via-transparent to-transparent" />
+    </button>
+  )
+}
+
 export default function GalleryClient() {
   const [cat, setCat] = useState<PortfolioCategory | 'all'>('all')
   const [lightbox, setLightbox] = useState<number | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   const filtered = useMemo(
     () =>
@@ -33,6 +63,11 @@ export default function GalleryClient() {
         : PORTFOLIO_ITEMS.filter((i) => i.category === cat),
     [cat]
   )
+
+  useEffect(() => {
+    setActiveIndex(0)
+    setLightbox(null)
+  }, [cat])
 
   const closeLightbox = useCallback(() => setLightbox(null), [])
 
@@ -50,6 +85,8 @@ export default function GalleryClient() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [lightbox, filtered.length, closeLightbox])
+
+  const active = filtered[activeIndex]
 
   return (
     <>
@@ -78,10 +115,7 @@ export default function GalleryClient() {
               <button
                 key={key}
                 type="button"
-                onClick={() => {
-                  setCat(key)
-                  setLightbox(null)
-                }}
+                onClick={() => setCat(key)}
                 className={`min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 sm:px-5 ${
                   cat === key
                     ? 'bg-brand-gold text-brand-black shadow-md shadow-brand-gold/20'
@@ -93,7 +127,42 @@ export default function GalleryClient() {
             ))}
           </div>
 
-          <div className="columns-1 gap-4 sm:columns-2 sm:gap-5 lg:columns-3 lg:gap-6">
+          <div className="lg:hidden">
+            <SnapCoverflow
+              key={cat}
+              ariaLabel={`Gallery — ${CATEGORY_LABELS[cat]}`}
+              onActiveChange={setActiveIndex}
+            >
+              {filtered.map((item, index) => (
+                <GalleryCard
+                  key={`${item.src}-${index}`}
+                  src={item.src}
+                  label={item.label}
+                  onOpen={() => setLightbox(index)}
+                />
+              ))}
+            </SnapCoverflow>
+            {active && (
+              <motion.div
+                key={`${active.src}-${activeIndex}`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                className="mx-auto mt-2 max-w-sm px-4 text-center"
+              >
+                <p className="font-display text-xl text-white">{active.label}</p>
+                <button
+                  type="button"
+                  onClick={() => setLightbox(activeIndex)}
+                  className="mt-3 text-sm font-medium text-brand-gold underline-offset-4 hover:underline"
+                >
+                  View full size
+                </button>
+              </motion.div>
+            )}
+          </div>
+
+          <div className="hidden columns-1 gap-4 sm:columns-2 sm:gap-5 lg:block lg:columns-3 lg:gap-6">
             {filtered.map((item, index) => (
               <button
                 key={`${item.src}-${index}`}
