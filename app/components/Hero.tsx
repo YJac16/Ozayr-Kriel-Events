@@ -1,7 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { publicPath } from '@/lib/media'
+import { LOGO_ON_DARK_CLASS, LOGO_SRC } from '@/lib/logo'
 import { WHATSAPP_HREF } from '@/lib/whatsapp'
 
 export function Hero() {
@@ -11,17 +13,26 @@ export function Hero() {
       className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={publicPath('wedding (1).jpeg')}
-          aria-hidden
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.06 }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'linear',
+          }}
         >
-          <source src={publicPath('braai (1).mp4')} type="video/mp4" />
-        </video>
+          <Image
+            src={publicPath('wedding (3).jpeg')}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </motion.div>
         <div
           className="absolute inset-0 bg-gradient-to-b from-brand-black/75 via-brand-black/60 to-brand-black"
           aria-hidden
@@ -41,9 +52,9 @@ export function Hero() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={publicPath('Metanoia Events Collective Logo.png')}
+            src={LOGO_SRC}
             alt="Metanoia Events Collective"
-            className="h-20 w-auto sm:h-24 md:h-28"
+            className={`h-20 w-auto sm:h-24 md:h-28 ${LOGO_ON_DARK_CLASS}`}
           />
         </motion.div>
         <motion.p
@@ -108,7 +119,6 @@ export function Hero() {
           </motion.a>
         </motion.div>
       </div>
-
     </section>
   )
 }

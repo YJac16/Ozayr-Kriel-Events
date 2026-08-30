@@ -50,3 +50,19 @@ export const CATEGORY_LABELS: Record<PortfolioCategory | 'all', string> = {
   braai: 'Braai Events',
   cinema: 'Outdoor Cinema',
 }
+
+/** Home gallery preview — one highlight per service type */
+export const GALLERY_PREVIEW_ITEMS: PortfolioItem[] = [
+  { src: 'wedding (2).jpeg', category: 'weddings', label: 'Cape Town Wedding' },
+  {
+    src: 'Kids_birthday (3).jpeg',
+    category: 'birthdays',
+    label: 'Kids party setup',
+  },
+  { src: 'food (2).jpeg', category: 'braai', label: 'Fire & gather' },
+  {
+    src: 'open_air_theatre.jpeg',
+    category: 'cinema',
+    label: 'Open-air cinema',
+  },
+]

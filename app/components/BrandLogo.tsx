@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { publicPath } from '@/lib/media'
+import { LOGO_ON_DARK_CLASS, LOGO_SRC } from '@/lib/logo'
 import { SITE } from '@/lib/constants'
 
 type BrandLogoProps = {
@@ -36,11 +36,11 @@ export function BrandLogo({
       }}
     >
       <Image
-        src={publicPath('Metanoia Events Collective Logo.png')}
+        src={LOGO_SRC}
         alt={SITE.name}
         width={width}
         height={height}
-        className={imageClassName}
+        className={`${imageClassName} ${LOGO_ON_DARK_CLASS}`}
         priority={priority}
       />
     </Link>
